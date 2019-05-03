@@ -13,13 +13,13 @@ export default class App extends React.Component {
     go.run(result.instance)
     this.setState({ isLoading: false })
 
-    const chat = startChat()
-    console.log(chat.do())
+    const obj = generateObject()
+    console.log(obj.do())
 
-    delete window.startChat
+    delete window.generateObject
 	});
   }
   render() {
-    return this.state.isLoading ? <div>Loading</div> :  <div><button onClick={sayHi}>Click to say Hi in console!</button></div>
+    return this.state.isLoading ? <div>Loading</div> :  <div>Go WASM React Example</div>
   }
 }
