@@ -10,8 +10,13 @@ export default class App extends React.Component {
   }
   componentDidMount() {
 	WebAssembly.instantiateStreaming(fetch("http://localhost:3000"), go.importObject).then(async (result) => {
-		go.run(result.instance)
-		this.setState({ isLoading: false })
+    go.run(result.instance)
+    this.setState({ isLoading: false })
+
+    const chat = startChat()
+    console.log(chat.do())
+
+    delete window.startChat
 	});
   }
   render() {
