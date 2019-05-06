@@ -1,4 +1,5 @@
 import React from 'react'
+import NameForm from './nameform';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,12 +15,16 @@ export default class App extends React.Component {
     this.setState({ isLoading: false })
 
     const obj = generateObject()
+    obj.onMessage = (mes) => {console.log("js callback" + mes)}
     console.log(obj.do())
-
     delete window.generateObject
 	});
   }
   render() {
-    return this.state.isLoading ? <div>Loading</div> :  <div>Go WASM React Example</div>
+    return (
+      this.state.isLoading ? 
+      <div>Loading</div> :  
+      <div>Go WASM React Example </div>
+    )
   }
 }
