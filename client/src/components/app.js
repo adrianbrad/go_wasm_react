@@ -1,5 +1,4 @@
 import React from 'react'
-import NameForm from './nameform';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,7 +16,6 @@ export default class App extends React.Component {
     const obj = generateObject()
     obj.onMessage = (mes) => {console.log("js callback" + mes)}
     console.log(obj.do())
-    delete window.generateObject
 	});
   }
   render() {

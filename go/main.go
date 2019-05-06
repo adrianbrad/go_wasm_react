@@ -20,8 +20,10 @@ func main() {
 			return 2
 		}))
 		generateObject.Release()
+		js.Global().Set("generateObject", js.Undefined())
 		return jsObj
 	})
+	
 	js.Global().Set("generateObject", generateObject)
 	select{}
 }
