@@ -6,6 +6,11 @@ import (
 )
 
 func main() {
+	generateObject()
+	select{}
+}
+
+func generateObject() {
 	var generateObject js.Func
 	generateObject = js.FuncOf(func(this js.Value, args[]js.Value) interface{} {
 		goObj := map[string]interface{}{}
@@ -23,7 +28,5 @@ func main() {
 		js.Global().Set("generateObject", js.Undefined())
 		return jsObj
 	})
-	
 	js.Global().Set("generateObject", generateObject)
-	select{}
 }
